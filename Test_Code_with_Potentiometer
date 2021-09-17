@@ -1,0 +1,124 @@
+/* Sweep
+ by BARRAGAN <http://barraganstudio.com>
+ This example code is in the public domain.
+
+ modified 8 Nov 2013
+ by Scott Fitzgerald
+ http://www.arduino.cc/en/Tutorial/Sweep
+*/
+
+#include <Servo.h>
+
+Servo myservo;  // create servo object to control a servo
+
+Servo myservo2;
+
+Servo myservo3;
+// twelve servo objects can be created on most boards
+
+int pos = 0;    // variable to store the servo position
+int potPin = 2;
+int val;
+class move{
+  public: 
+  Servo temp_servo;
+  move(int pin_input)
+  {
+//    Servo temp_servo = passed_servo;
+    temp_servo.attach(pin_input);
+  }
+
+  void go_to_a(int deg)
+  {
+    
+    temp_servo.write(deg);
+//    Serial.println("correct");
+  }
+
+
+  
+  
+
+  
+};
+void setup() {
+  Serial.begin(9600);
+  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
+  myservo2.attach(10);
+  myservo3.attach(11);
+}
+
+//void go_to(int des_pos)
+//{   int cur_pos = 0;
+//    for (cur_pos = 0; cur_pos <= des_pos; cur_pos += 1) { // goes from 0 degrees to 180 degrees
+//    // in steps of 1 degree
+//    myservo.write(cur_pos);              // tell servo to go to position in variable 'pos'
+//    Serial.println(cur_pos);
+//    delay(15);                       // waits 15ms for the servo to reach the position
+//    return;
+//  }
+//}
+
+void loop() {
+//  move motor_1(9);
+//  move motor_2(10);
+//  move motor_3(11);
+  val = analogRead(potPin);
+  Serial.println(val);
+  val = map(val, 0, 1023, 0, 180);
+  Serial.print("degree");
+  Serial.println(val);
+//  motor_1.go_to_a(0);
+//  motor_2.go_to_a(0);
+//  motor_3.go_to_a(0);
+  myservo.write(val);
+//  int read= myservo.read();
+  delay(10);
+
+//move try_1;
+//try_1.go_to_a();
+//myservo.write(30);
+
+//  for (pos = 0; pos <= +90; pos += 1) { // goes from 0 degrees to 180 degrees
+//    // in steps of 1 degree
+//    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+//    delay(15);                       // waits 15ms for the servo to reach the position
+//  }
+//   for (pos = 90; pos >= 0; pos -= 1) { // goes from 0 degrees to 180 degrees
+//    // in steps of 1 degree
+//    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+//    delay(15);                       // waits 15ms for the servo to reach the position
+//  }
+//
+//    for (pos = 0; pos <= +90; pos += 1) { // goes from 0 degrees to 180 degrees
+//    // in steps of 1 degree
+//    myservo2.write(pos);              // tell servo to go to position in variable 'pos'
+//    delay(15);                       // waits 15ms for the servo to reach the position
+//  }
+//   for (pos = 90; pos >= 0; pos -= 1) { // goes from 0 degrees to 180 degrees
+//    // in steps of 1 degree
+//    myservo2.write(pos);              // tell servo to go to position in variable 'pos'
+//    delay(15);                       // waits 15ms for the servo to reach the position
+//  }
+//
+//    for (pos = 1500; pos <= 2000; pos += 10) { // goes from 0 degrees to 180 degrees
+//    // in steps of 1 degree
+//    myservo3.writeMicroseconds(pos);              // tell servo to go to position in variable 'pos'
+//    delay(15);                       // waits 15ms for the servo to reach the position
+//  }
+//   for (pos = 2000; pos >= 700; pos -= 10) { // goes from 0 degrees to 180 degrees
+//    // in steps of 1 degree
+//    myservo3.writeMicroseconds(pos);              // tell servo to go to position in variable 'pos'
+//    delay(15);                       // waits 15ms for the servo to reach the position
+//  }
+////  for (pos = 0; pos <= 45; pos += 1) { // goes from 180 degrees to 0 degrees
+////    myservo2.write(pos);              // tell servo to go to position in variable 'pos'
+////    delay(15);                       // waits 15ms for the servo to reach the position
+////  }
+////   for (pos = 0; pos <= 20; pos += 1) { // goes from 180 degrees to 0 degrees
+////    myservo3.write(pos);              // tell servo to go to position in variable 'pos'
+////    delay(15);                       // waits 15ms for the servo to reach the position
+////  }
+////int x = 90;
+////myservo.write(90); 
+}
